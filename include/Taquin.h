@@ -11,8 +11,10 @@ class Taquin
     public:
         Taquin();
         Taquin(int d);
-        void initTaquin();
-        void showTaquin();
+        bool isResolvable();
+        void initItSelf();
+        void mixItSelf();
+        void showItSelf();
 
     protected:
 

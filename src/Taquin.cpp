@@ -7,28 +7,42 @@ using namespace std;
 Taquin::Taquin()
 {
     dimensions = 3;
-    initTaquin();
+    initItSelf();
 }
 
-Taquin::Taquin(int d)
+Taquin::Taquin(int d = 3)
 {
     dimensions = d;
-    initTaquin();
+    initItSelf();
 }
 
-void Taquin::initTaquin()
+bool Taquin::isResolvable()
+{
+    return true;
+}
+
+void Taquin::initItSelf()
 {
     int casesLength = 0;
-    for(int x = 0; x < dimensions; ++x){
-        cases.push_back(vector<int>(3));
+    for(int x = 0; x < dimensions; ++x)
+    {
+        cases.push_back(vector<int>(dimensions));
         for(int y = 0; y < dimensions; ++y){
-            ++casesLength;
-            cases[x][y] = casesLength;
+            if((x != (dimensions - 1)) || (y != (dimensions - 1)))
+            {
+                ++casesLength;
+                cases[x][y] = casesLength;
+            }
         }
     }
 }
 
-void Taquin::showTaquin()
+void Taquin::mixItSelf(){
+    int nbrMix = rand() % 100;
+    cout << nbrMix << endl;
+}
+
+void Taquin::showItSelf()
 {
     for(int x = 0; x < dimensions; ++x){
         for(int y = 0; y < dimensions; ++y){
