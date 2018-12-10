@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1544402466 source:/home/yannickdebree/development/taquinResolver/main.cpp
+	<Taquin.h>
+
+1544402723 source:/home/yannickdebree/development/taquinResolver/src/Taquin.cpp
+	"Taquin.h"
+	<iostream>
+	<vector>
+
+1544402838 /home/yannickdebree/development/taquinResolver/include/Taquin.h
+	<vector>
+
