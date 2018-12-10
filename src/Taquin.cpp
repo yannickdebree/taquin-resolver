@@ -1,6 +1,7 @@
 #include "Taquin.h"
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 using namespace std;
 
@@ -18,36 +19,75 @@ Taquin::Taquin(int d = 3)
 
 bool Taquin::isResolvable()
 {
-    return true;
+    int modificationsCount = 0;
+    for(int i = 0; i < (casesNumber - 1); ++i)
+    {
+        if(casesMixed[i] + 1 != casesMixed[i + 1])
+        {
+            ++modificationsCount;
+        }
+    }
+    if(modificationsCount%2 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void Taquin::initItSelf()
 {
-    int casesLength = 0;
-    for(int x = 0; x < dimensions; ++x)
-    {
-        cases.push_back(vector<int>(dimensions));
-        for(int y = 0; y < dimensions; ++y){
-            if((x != (dimensions - 1)) || (y != (dimensions - 1)))
-            {
-                ++casesLength;
-                cases[x][y] = casesLength;
-            }
-        }
+    casesNumber = pow(dimensions, 2);
+    int i = 0;
+    while(++i < casesNumber + 1){
+        cases.push_back(i);
     }
 }
 
-void Taquin::mixItSelf(){
+void Taquin::mixItSelf()
+{
+    casesMixed = cases;
     int nbrMix = rand() % 100;
     cout << nbrMix << endl;
+    for(int i = 0 ; i < nbrMix; ++i)
+    {
+        int randomKey1 = rand() % casesNumber;
+        int randomKey2 = rand() % casesNumber;
+        int buffer = casesMixed[randomKey1];
+        casesMixed[randomKey1] = casesMixed[randomKey2];
+        casesMixed[randomKey2] = buffer;
+    }
+    showItSelfMixed();
 }
 
 void Taquin::showItSelf()
 {
-    for(int x = 0; x < dimensions; ++x){
-        for(int y = 0; y < dimensions; ++y){
-            cout << cases[x][y];
+    cout << "Taquin in intial state: " << endl;
+    for(int i = 0; i < casesNumber; ++i)
+    {
+        cout << cases[i];
+        if((i + 1)%dimensions == 0)
+        {
+            cout << endl;
         }
-        cout << endl;
+    }
+}
+
+void Taquin::showItSelfMixed()
+{
+    cout << "Taquin in mixed state: " << endl;
+    for(int i = 0; i < casesNumber; ++i)
+    {
+        cout << casesMixed[i];
+        if((i + 1)%dimensions == 0)
+        /**
+         * Example when dimensions = 3 and i = 2 :
+         * (2 + 1) % 3 = 3 % 3 == 0
+         */
+        {
+            cout << endl;
+        }
     }
 }

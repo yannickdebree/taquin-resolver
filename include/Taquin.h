@@ -7,7 +7,9 @@ using namespace std;
 class Taquin
 {
     int dimensions;
-    vector<vector<int>> cases;
+    int casesNumber;
+    vector<int> cases;
+    vector<int> casesMixed;
     public:
         Taquin();
         Taquin(int d);
@@ -15,7 +17,7 @@ class Taquin
         void initItSelf();
         void mixItSelf();
         void showItSelf();
-
+        void showItSelfMixed();
     protected:
 
     private:
