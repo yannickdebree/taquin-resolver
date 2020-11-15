@@ -12,3 +12,16 @@
 1544465797 /home/yannickdebree/development/taquinResolver/include/Taquin.h
 	<vector>
 
+1605470211 source:/home/yannickdebree/development/taquin-resolver/src/Taquin.cpp
+	"Taquin.h"
+	<iostream>
+	<vector>
+	<math.h>
+
+1605470211 /home/yannickdebree/development/taquin-resolver/include/Taquin.h
+	<vector>
+
+1605470289 source:/home/yannickdebree/development/taquin-resolver/main.cpp
+	<iostream>
+	<Taquin.h>
+

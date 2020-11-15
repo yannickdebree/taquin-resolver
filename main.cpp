@@ -6,13 +6,13 @@ int main()
     Taquin taquin;
     taquin.showItSelf();
     taquin.mixItSelf();
-    if(taquin.isResolvable())
+    if (taquin.isResolvable())
     {
-        std::cout << "Le taquin est résolvable !";
+        std::cout << "Taquin is resolvable !";
     }
     else
     {
-        std::cout << "Le taquin n'est pas résolvable...";
+        std::cout << "Taquin is not resolvable...";
     }
     return 0;
 }
